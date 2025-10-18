@@ -1,0 +1,7 @@
+# Note: config.js is tracked in git because Web3Forms access keys
+# are designed to be public-facing (used in frontend)
+# They are protected by domain restrictions on the Web3Forms dashboard
+
+# Add other sensitive files here if needed
+# .env
+# secrets.js

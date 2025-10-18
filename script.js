@@ -164,35 +164,59 @@ timelineItems.forEach(item => {
     timelineObserver.observe(item);
 });
 
-// Contact Form Handling
+// Contact Form Handling with Web3Forms
 const contactForm = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
+const formStatus = document.getElementById('formStatus');
+
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    // Set API key from config (not hard-coded)
+    const accessKeyInput = document.getElementById('accessKey');
+    if (accessKeyInput && typeof CONFIG !== 'undefined') {
+        accessKeyInput.value = CONFIG.WEB3FORMS_ACCESS_KEY;
+    }
+    
+    contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        formStatus.style.display = 'block';
+        formStatus.innerHTML = '';
         
-        // Validate fields
-        if (!name || !email || !subject || !message) {
-            alert('Please fill in all fields');
-            return;
+        // Get form data
+        const formData = new FormData(contactForm);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            });
+            
+            const result = await response.json();
+            
+            if (response.status === 200) {
+                // Success
+                formStatus.innerHTML = '<div style="color: var(--success-color); padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border: 1px solid var(--success-color);"><i class="fas fa-check-circle"></i> Message sent successfully! I\'ll get back to you soon.</div>';
+                contactForm.reset();
+            } else {
+                // Error
+                formStatus.innerHTML = '<div style="color: #ef4444; padding: 1rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px; border: 1px solid #ef4444;"><i class="fas fa-exclamation-circle"></i> ' + (result.message || 'Something went wrong. Please try again.') + '</div>';
+            }
+        } catch (error) {
+            formStatus.innerHTML = '<div style="color: #ef4444; padding: 1rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px; border: 1px solid #ef4444;"><i class="fas fa-exclamation-circle"></i> Network error. Please check your connection and try again.</div>';
+        } finally {
+            // Reset button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
         }
-        
-        // Create mailto link with proper formatting
-        const mailtoLink = `mailto:vivekinturi27@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-            `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-        )}`;
-        
-        // Use window.location.href instead of opening new tab
-        window.location.href = mailtoLink;
-        
-        // Reset form after a delay
-        setTimeout(() => {
-            contactForm.reset();
-        }, 1000);
     });
 }
 

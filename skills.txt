@@ -1,0 +1,11 @@
+•	Cloud Platforms & Services: AWS (EC2, S3, RDS, Lambda, CloudWatch, CloudFront, VPC), Azure (VMs, AKS, Blob Storage, Key Vault, DevOps, Monitor), GCP (Compute Engine, GKE, Cloud Storage). Experienced in SaaS, PaaS, and IaaS environments
+•	Infrastructure as Code (IaC) & Automation: Terraform, CloudFormation, ARM Templates, Ansible, Puppet, SaltStack. Expert in automating infrastructure provisioning and configuration management.
+•	DevOps Core: GitHub Actions, Jenkins, ArgoCD, Azure DevOps, Harness, CircleCI, Bitbucket, Travis CI. Skilled in pipeline automation, GitOps, blue-green & canary deployments.
+•	Containerization & Orchestration: Docker, Kubernetes (EKS, AKS, GKE, OpenShift), Helm, ECS, Docker Swarm, Service Mesh. Hands-on experience with microservices and container lifecycle management.
+•	SRE/Observability: Prometheus, Grafana, Datadog, Dynatrace, PagerDuty, ELK, Splunk, CloudWatch, SonarQube, Nagios. Strong focus on alerting, tracing, and incident response automation.
+•	Security: IAM, WAF, KMS, HashiCorp Vault, Secrets Manager, Data Encryption, CIS Benchmarks, Cloud Security Posture Management (CSPM), DevSecOps pipeline integration.
+•	Scripting & Programming: Python, Go, Bash, PowerShell, YAML, JSON, C#, JavaScript, .NET. Developed automation scripts and cloud security automation for infrastructure management.
+•	Networking & Databases: VPC, Subnets, Route53, Load Balancing, DNS, VPN, TLS/SSL, Firewalls. Databases: MySQL, Redis, PostgreSQL, MongoDB, DynamoDB, SQL Server, Oracle SQL.
+•	Development & Collaboration Tools: Versioning (Git, GitHub, GitLab), Jira, Confluence, Maven, Gradle, Nexus, RabbitMQ, Nginx, Apache, Tomcat. Agile/Scrum experience with ServiceNow-based ticketing.
+•	Operating Systems: Linux (Ubuntu, RedHat, CentOS), Unix, Windows Server, macOS, VMware, Hyper-V, Vagrant.
+
