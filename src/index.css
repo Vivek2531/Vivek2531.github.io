@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
+/* Added for code */
+
+:root {
+  --bg-matte: #0e0e10;
+  --bg-card: #18181b;
+  --bg-sidebar: #121215;
+
+  --primary: #ffffff;
+  --secondary: #a1a1aa;
+  --accent: #6366f1;
+  /* Indigo-500 */
+
+  --border-subtle: #27272a;
+
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'Fira Code', 'Courier New', monospace;
+  /* Added mono font var */
+
+  --sidebar-width: 280px;
+
+  /* Syntax Highlighting Colors */
+  --sh-keyword: #c678dd;
+  /* Purple */
+  --sh-string: #98c379;
+  /* Green */
+  --sh-number: #d19a66;
+  /* Orange */
+  --sh-property: #e06c75;
+  /* Red/Pink */
+  --sh-comment: #5c6370;
+  /* Grey */
+  --sh-operator: #56b6c2;
+  /* Cyan */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(99, 102, 241, 0.08), transparent 25%),
+    #050505;
+  color: var(--primary);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-matte);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 3px;
+}
+
+/* Layout Utilities */
+.main-content {
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+  padding: 3rem 4rem;
+}
+
+@media (max-width: 1024px) {
+  .main-content {
+    margin-left: 0;
+    padding: 2rem 1.5rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: white;
+  letter-spacing: -0.02em;
+}
+
+/* Bento Card Style */
+.bento-card {
+  background: rgba(24, 24, 27, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+.bento-card:hover {
+  transform: translateY(-2px);
+  background: rgba(39, 39, 42, 0.5);
+  border-color: rgba(129, 140, 248, 0.3);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.2),
+    0 10px 10px -5px rgba(0, 0, 0, 0.1),
+    0 0 15px rgba(129, 140, 248, 0.1);
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  background: #27272a;
+  color: #d4d4d8;
+  border: 1px solid #3f3f46;
+}
+
+/* --- API / Endpoint Contact Form Styles (Phase 24.1) --- */
+
+.api-window {
+  background: #1e1e1e;
+  /* VS Code dark bg approx */
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #333;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-mono);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.api-header {
+  background: #252526;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid #333;
+}
+
+.method-tag {
+  color: #ff9f43;
+  /* POST orange */
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.url-bar {
+  background: #3c3c3c;
+  color: #ccc;
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  flex: 1;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+}
+
+.api-body {
+  padding: 1.5rem;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.line-number {
+  color: #858585;
+  display: inline-block;
+  width: 2rem;
+  text-align: right;
+  margin-right: 1rem;
+  user-select: none;
+  font-size: 0.85rem;
+}
+
+.code-line {
+  display: flex;
+  align-items: flex-start;
+  /* To align numbers with multiline textareas */
+}
+
+/* Syntax Highlighting Classes */
+.sh-key {
+  color: var(--sh-property);
+}
+
+.sh-str {
+  color: var(--sh-string);
+}
+
+.sh-num {
+  color: var(--sh-number);
+}
+
+.sh-punc {
+  color: #d4d4d4;
+}
+
+.sh-null {
+  color: var(--sh-number);
+  font-style: italic;
+}
+
+.api-input {
+  background: transparent;
+  border: none;
+  color: var(--sh-string);
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  width: 60%;
+  border-bottom: 1px dashed #444;
+  padding: 0 0.2rem;
+}
+
+.api-input:focus {
+  border-bottom: 1px solid var(--sh-string);
+  background: rgba(152, 195, 121, 0.1);
+}
+
+.api-textarea {
+  background: transparent;
+  border: none;
+  color: var(--sh-string);
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  width: 100%;
+  min-height: 1.6rem;
+  border-left: 2px solid #444;
+  padding-left: 0.5rem;
+  margin-top: 0.2rem;
+  resize: vertical;
+}
+
+.api-textarea:focus {
+  border-left: 2px solid var(--sh-string);
+}
+
+.api-footer {
+  background: #252526;
+  padding: 1rem;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.send-btn {
+  background: #0e639c;
+  /* VS Code blue */
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s;
+}
+
+.send-btn:hover {
+  background: #1177bb;
+}
+
+.send-btn:disabled {
+  background: #3c3c3c;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.response-block {
+  margin-top: 1.5rem;
+  background: #111;
+  border-top: 1px solid #333;
+  padding: 1rem;
+}
+
+.response-header {
+  display: flex;
+  justify-content: space-between;
+  color: #888;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.status-badge {
+  color: #a6e22e;
+  /* Monokai Green */
+  font-weight: bold;
+}
