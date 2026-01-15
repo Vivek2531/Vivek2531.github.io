@@ -48,10 +48,12 @@ const Sidebar = ({ activeView, onViewChange }: SidebarProps) => {
                             width: '45px',
                             height: '45px',
                             borderRadius: '12px',
-                            backgroundImage: 'url(/profile.jpg)',
-                            backgroundSize: 'cover',
+                            backgroundImage: 'url(/favicon.svg)',
+                            backgroundSize: '80%',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundColor: '#000',
                             backgroundPosition: 'center',
-                            border: '2px solid rgba(255,255,255,0.1)'
+                            border: '2px solid rgba(99, 102, 241, 0.3)'
                         }} />
                         <div>
                             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'white', letterSpacing: '0.5px' }}>Vivek Inturi</h3>

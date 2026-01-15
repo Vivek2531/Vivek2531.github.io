@@ -53,7 +53,7 @@ const Navbar = () => {
                 }}
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
-                VI<span style={{ color: 'var(--primary)' }}>.</span>
+                VI<span style={{ color: 'var(--primary)' }}>.</span> Inturi
             </div>
 
             <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none' }}>
